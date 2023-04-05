@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Menu from './components/Menu';
+import SearchInput from './components/SearchInput';
+import TodoList from './components/TodoList';
 
 function App() {
+  class task {
+    constructor(text, done) {
+      this.text = text;
+      this.done = done;
+    }
+  }
+
+  const names = ["Nitish Kumar", "Sanjeev Kumar", "Kumar Sunny", "Sunnil",
+    "Gourav Pareek", "Tushar Bharti", "Bharath", "Pramodh", "Nandani Laxmi",
+    "Kritwik", "Ravi Kumar", "Naushad", "Amarjeet Kumar"]
+  const items = [new task("To Complete Assignment 2", false),
+  new task("To ready for outing", false),
+  new task("To read notes and revise last topic.", true)]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchInput items={names.sort()} />
+      <Menu />
+      <TodoList items={items}/>
     </div>
   );
 }
